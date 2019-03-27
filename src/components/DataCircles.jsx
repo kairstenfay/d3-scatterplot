@@ -17,20 +17,19 @@ export default function DataCircles(props) {  // todo make function if this tool
 
 function renderCircles(props) {
     return (coords, index) => {
-        // console.log(formatTime(coords.Time));
         console.log(props.xScale(coords.Year));
 
         const circleProps = {
-            cx: props.xScale(parseYear(coords.Year)),  // todo stop parsing all over. do it once
-            cy: props.yScale(parseTime(coords.Time)),
+            cx: props.xScale(coords.Year),
+            cy: props.yScale(coords.Time),
             r: 2,
             key: index,
         };
 
         const fillColor = 'grey';  // todo config
 
-        return <circle className="dot" data-xvalue={parseYear(coords.Year)}
-                       data-yvalue={parseTime(coords.Time)}
+        return <circle className="dot" data-xvalue={coords.Year}
+                       data-yvalue={coords.Time}
                        {...circleProps} fill={fillColor} />;
     };
 }

@@ -2,6 +2,9 @@ import React       from 'react';
 import BarChart from './ScatterPlot';
 import '../Chart.css';
 import renderToolTip from '../actions/renderToolTip';
+import * as d3 from "d3";
+const parseTime = d3.timeParse("%M:%S");
+const parseYear = d3.timeParse("%Y");
 
 const styles = {
     width: Math.min(window.innerWidth, 700),
@@ -30,6 +33,12 @@ export default class Chart extends React.Component{
         fetch(url)
             .then(res => res.json())
             .then(jsonData => {
+
+                for (let i = 0; i < jsonData.length; i++) {
+                    jsonData[i].Year = parseYear(jsonData[i].Year);
+                    jsonData[i].Time = parseTime(jsonData[i].Time);
+                }
+
                 this.setState({ data: jsonData })
             })
             .catch(console.error)
