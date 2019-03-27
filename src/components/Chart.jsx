@@ -53,7 +53,7 @@ export default class Chart extends React.Component{
         return (
         <div id="chart">
             <header className="App-header">
-                <h1 id="title">U.S. GDP</h1>
+                <h1 id="title">Doping in Professional Bicycle Racing</h1>
             </header>
             <BarChart {...this.state} {...styles} toolTipAction={this.toggleToolTip} />
         </div>

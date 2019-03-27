@@ -21,7 +21,7 @@ function renderCircles(props) {
         console.log(props.xScale(coords.Year));
 
         const circleProps = {
-            cx: props.xScale(parseYear(coords.Year)),  // todo
+            cx: props.xScale(parseYear(coords.Year)),  // todo stop parsing all over. do it once
             cy: props.yScale(parseTime(coords.Time)),
             r: 2,
             key: index,
@@ -29,7 +29,9 @@ function renderCircles(props) {
 
         const fillColor = 'grey';  // todo config
 
-        return <circle className="bar" {...circleProps} fill={fillColor} />;
+        return <circle className="dot" data-xvalue={parseYear(coords.Year)}
+                       data-yvalue={parseTime(coords.Time)}
+                       {...circleProps} fill={fillColor} />;
     };
 }
 

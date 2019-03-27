@@ -1,5 +1,6 @@
 import React from 'react';
 import * as d3    from 'd3';
+import {timeFormat} from 'd3';
 
 export default class Axis extends React.Component {
     componentDidMount() {
@@ -12,7 +13,15 @@ export default class Axis extends React.Component {
 
     renderAxis() {
         let node  = this.refs.axis;
-        let axis = (this.props.orient === 'bottom') ? d3.axisBottom(this.props.scale) : d3.axisLeft(this.props.scale);
+
+        let axis;
+
+        if (this.props.orient === 'bottom') {
+            axis = d3.axisBottom(this.props.scale)
+        } else {
+            axis = d3.axisLeft(this.props.scale)
+                .tickFormat(d3.timeFormat("%I:%M"));
+        }
 
         d3.select(node).call(axis);
     }
