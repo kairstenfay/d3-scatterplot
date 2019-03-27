@@ -47,12 +47,14 @@ export default class Chart extends React.Component{
 
     toggleToolTip(e) {
         let attributes = e.target.attributes;
-        //
-        // this.setState({
-        //     dataDate: attributes['data-date'].nodeValue,
-        //     showToolTip: !this.state.showToolTip, // todo d-r-y
-        //     toolTipSVG: (!this.state.showToolTip) ? renderToolTip(attributes) : null,
-        // })
+        console.log(attributes);
+
+        this.setState({
+            year: attributes['data-xvalue'].nodeValue,
+            time: attributes['data-yvalue'].nodeValue,
+            showToolTip: !this.state.showToolTip, // todo d-r-y
+            toolTipSVG: (!this.state.showToolTip) ? renderToolTip(attributes) : null,
+        })
     }
 
 

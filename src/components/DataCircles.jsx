@@ -5,7 +5,7 @@ export default function DataCircles(props) {
     return (
         <g id="circle-garden" onMouseOver={props.toolTipAction} onMouseOut={props.toolTipAction}>
             {props.data.map(renderCircles(props))}
-            {/*{props.toolTipSVG}*/}
+            {props.toolTipSVG}
         </g>
     );
 }
