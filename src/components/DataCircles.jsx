@@ -20,7 +20,7 @@ function renderCircles(props) {
             key: index,
         };
 
-        const fillColor = 'grey';  // todo config
+        const fillColor = (coords.Doping === "") ? 'blue': 'red';  // todo config
 
         return <circle className="dot" data-xvalue={coords.Year}
                        data-yvalue={coords.Time}

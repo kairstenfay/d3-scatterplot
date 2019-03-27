@@ -21,15 +21,9 @@ const yMax   = (data)  => {
 
 // Returns a function that "scales" X coordinates from the data to fit the chart
 const xScale = (props) => {
-    let year = props.data.map(d => d.Year.getFullYear());
-    console.log(year);
-
-    console.log("xMin = " + xMin(props.data));
-    console.log("xMax = " + xMax(props.data));
 
     let minX = xMin(props.data);
     minX = (minX) ? parseYear(minX.getFullYear() - 1) : minX;
-    
 
     return scaleTime()
         .domain([minX, xMax(props.data)])

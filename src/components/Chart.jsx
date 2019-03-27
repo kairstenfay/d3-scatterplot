@@ -14,7 +14,6 @@ const styles = {
     showToolTip: false
 };
 
-
 export default class Chart extends React.Component{
     constructor(props) {
         super(props);
@@ -34,6 +33,7 @@ export default class Chart extends React.Component{
         fetch(url)
             .then(res => res.json())
             .then(jsonData => {
+                console.log(jsonData);
 
                 for (let i = 0; i < jsonData.length; i++) {
                     jsonData[i].Year = parseYear(jsonData[i].Year);
