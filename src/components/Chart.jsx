@@ -1,5 +1,6 @@
 import React       from 'react';
-import BarChart from './ScatterPlot';
+import ScatterPlot from './ScatterPlot';
+import Legend from './Legend';
 import '../Chart.css';
 import renderToolTip from '../actions/renderToolTip';
 import * as d3 from "d3";
@@ -64,7 +65,8 @@ export default class Chart extends React.Component{
             <header className="App-header">
                 <h1 id="title">Doping in Professional Bicycle Racing</h1>
             </header>
-            <BarChart {...this.state} {...styles} toolTipAction={this.toggleToolTip} />
+            <ScatterPlot {...this.state} {...styles} toolTipAction={this.toggleToolTip} />
+            <Legend />
         </div>
         )
     }

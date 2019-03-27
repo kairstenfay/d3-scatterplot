@@ -1,5 +1,6 @@
 import {scaleLinear, scaleTime} from "d3-scale";
 import * as d3 from "d3";
+const parseYear = d3.timeParse("%Y");
 
 const xMax   = (data)  => {
     return d3.max(data, (d) => d.Year); // d.getFullYear());
@@ -20,13 +21,18 @@ const yMax   = (data)  => {
 
 // Returns a function that "scales" X coordinates from the data to fit the chart
 const xScale = (props) => {
-    let year = props.data.map(d => d.Year);
+    let year = props.data.map(d => d.Year.getFullYear());
+    console.log(year);
 
     console.log("xMin = " + xMin(props.data));
     console.log("xMax = " + xMax(props.data));
 
+    let minX = xMin(props.data);
+    minX = (minX) ? parseYear(minX.getFullYear() - 1) : minX;
+    
+
     return scaleTime()
-        .domain([xMin(props.data), xMax(props.data)])
+        .domain([minX, xMax(props.data)])
         .range([props.padding, props.width - props.padding * 2]);
 };
 
