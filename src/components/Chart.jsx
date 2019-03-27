@@ -48,7 +48,7 @@ export default class Chart extends React.Component{
 
     render() {
 
-        this.state.data.map(x => console.log(x));
+        // this.state.data.map(x => console.log(x));
 
         return (
         <div id="chart">

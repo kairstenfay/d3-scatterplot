@@ -25,6 +25,9 @@ const yMax   = (data)  => {
 const xScale = (props) => {
     let year = props.data.map(d => parseYear(d.Year.toString()));
 
+    console.log("xMin = " + xMin(props.data));
+    console.log("xMax = " + xMax(props.data));
+
     return scaleTime()
         .domain([xMin(props.data), xMax(props.data)])
         .range([props.padding, props.width - props.padding * 2]);
@@ -32,9 +35,8 @@ const xScale = (props) => {
 
 // Returns a function that "scales" Y coordinates from the data to fit the chart
 const yScale = (props) => {
-    let time = props.data.map(d => parseTime(d.Time));
 
-    console.log(yMin(time) + " to " + yMax(time));
+    console.log(yMin(props.data) + " to " + yMax(props.data));
     return scaleTime()
         .domain([yMin(props.data), yMax(props.data)])
         .range([props.height - props.padding, props.padding]);

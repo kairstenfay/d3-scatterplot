@@ -18,18 +18,18 @@ export default function DataCircles(props) {  // todo make function if this tool
 function renderCircles(props) {
     return (coords, index) => {
         // console.log(formatTime(coords.Time));
-        console.log(parseTime(coords.Time));
+        console.log(props.xScale(coords.Year));
 
         const circleProps = {
-            cx: props.xScale(coords.Year),  // todo
-            cy: props.yScale(coords.Time),
+            cx: props.xScale(parseYear(coords.Year)),  // todo
+            cy: props.yScale(parseTime(coords.Time)),
             r: 2,
             key: index,
         };
 
-        const fillColor = (props.dataDate === coords[0]) ? '#ff8282' : 'grey';  // todo config
+        const fillColor = 'grey';  // todo config
 
-        return <circle className="bar" data-date={coords[0]} data-gdp={coords[1]} {...circleProps} fill={fillColor} />;
+        return <circle className="bar" {...circleProps} fill={fillColor} />;
     };
 }
 
