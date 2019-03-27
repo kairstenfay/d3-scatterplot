@@ -20,7 +20,7 @@ export default class Axis extends React.Component {
             axis = d3.axisBottom(this.props.scale)
         } else {
             axis = d3.axisLeft(this.props.scale)
-                .tickFormat(d3.timeFormat("%I:%M"));
+                .tickFormat(d3.timeFormat("%M:%S"));
         }
 
         d3.select(node).call(axis);
