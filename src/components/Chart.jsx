@@ -30,24 +30,25 @@ export default class Chart extends React.Component{
         fetch(url)
             .then(res => res.json())
             .then(jsonData => {
-                let data = jsonData;
-                this.setState({ data })
+                this.setState({ data: jsonData })
             })
             .catch(console.error)
     }
 
     toggleToolTip(e) {
         let attributes = e.target.attributes;
-
-        this.setState({
-            dataDate: attributes['data-date'].nodeValue,
-            showToolTip: !this.state.showToolTip, // todo d-r-y
-            toolTipSVG: (!this.state.showToolTip) ? renderToolTip(attributes) : null,
-        })
+        //
+        // this.setState({
+        //     dataDate: attributes['data-date'].nodeValue,
+        //     showToolTip: !this.state.showToolTip, // todo d-r-y
+        //     toolTipSVG: (!this.state.showToolTip) ? renderToolTip(attributes) : null,
+        // })
     }
 
 
     render() {
+
+        this.state.data.map(x => console.log(x));
 
         return (
         <div id="chart">

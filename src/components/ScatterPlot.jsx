@@ -1,5 +1,5 @@
 import React        from 'react';
-import DataRectangles  from './DataRectangles';
+import DataCircles  from './DataCircles';
 import XYAxis from './XYAxis';
 import {xScale, yScale} from '../actions/createScales';
 
@@ -11,9 +11,8 @@ export default (props) => {
 
     return (
         <svg width={props.width} height={props.height} >
-            <DataRectangles {...props} {...scales} />
+            <DataCircles {...props} {...scales} />
             <XYAxis {...props} {...scales} />
-
         </svg>
     )
 }
