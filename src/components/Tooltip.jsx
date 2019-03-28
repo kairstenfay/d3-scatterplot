@@ -20,10 +20,14 @@ export default (props) => {
 
         const triangleWidth = 10; // todo import from styles or put in config
 
+        const display = (props.showToolTip) ? 'block' : 'none';
         return (
-            <div id="tooltip" style={{left: Math.floor(cx) + 9 * padding + 'px',
-                top: Math.floor(cy) - 0.5 * padding + 'px',
-                position: 'absolute'}}>
+            <div id="tooltip" data-year={year}
+                 style={{left: Math.floor(cx) + 9 * padding + 'px',
+                     top: Math.floor(cy) - 0.5 * padding + 'px',
+                     position: 'absolute',
+                     display: display}}
+            >
                 {fullYear}
                 <br/>
                 {name}
@@ -35,7 +39,7 @@ export default (props) => {
         );
     } else {
         return (
-            <div id="tooltip" />
+            <div/>
         )
     }
 }
