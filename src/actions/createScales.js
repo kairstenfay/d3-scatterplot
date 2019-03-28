@@ -14,7 +14,6 @@ const yMin   = (data)  => {
     return d3.min(data, (d) => d.Time); // d.getTime());
 };
 
-// Returns the highest Y coordinate from the data set
 const yMax   = (data)  => {
     return d3.max(data, (d) => d.Time); // d.getTime());
 };

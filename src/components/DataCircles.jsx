@@ -21,10 +21,12 @@ function renderCircles(props) {
         };
 
         const fillColor = (coords.Doping === "") ? 'blue': 'red';  // todo config
-
+        
         return <circle className="dot" data-xvalue={coords.Year}
-                       data-yvalue={coords.Time}
+                       data-yvalue={coords.Time}  // todo: {...coords}
                        {...circleProps} fill={fillColor} />;
     };
 }
+
+
 

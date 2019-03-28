@@ -50,8 +50,6 @@ export default class Chart extends React.Component{
         console.log(attributes);
 
         this.setState({
-            year: attributes['data-xvalue'].nodeValue,
-            time: attributes['data-yvalue'].nodeValue,
             showToolTip: !this.state.showToolTip, // todo d-r-y
             toolTipSVG: (!this.state.showToolTip) ? renderToolTip(attributes) : null,
         })
@@ -72,4 +70,12 @@ export default class Chart extends React.Component{
         </div>
         )
     }
+}
+
+
+function toLowerCaseKeys(obj) {
+    return Object.keys(obj).reduce(function(accum, key) {
+        accum[key.toLowerCase()] = obj[key];
+        return accum;
+    }, {});
 }
