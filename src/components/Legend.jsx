@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Legend(props) {
+export default function Legend() {
 
     return (
 

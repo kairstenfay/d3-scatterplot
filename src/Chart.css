@@ -18,3 +18,12 @@
 #clean {
   background-color: blue;
 }
+
+#tooltip {
+  text-align: left;
+  background-color: darkgrey;
+  border-color: black;
+  border-radius: 5px;
+  padding: 5px;
+  opacity: 0.8;
+}

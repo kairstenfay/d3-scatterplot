@@ -2,7 +2,7 @@ import React       from 'react';
 import ScatterPlot from './ScatterPlot';
 import Legend from './Legend';
 import '../Chart.css';
-import renderToolTip from '../actions/renderToolTip';
+import Tooltip from '../components/Tooltip';
 import * as d3 from "d3";
 const parseTime = d3.timeParse("%M:%S");
 const parseYear = d3.timeParse("%Y");
@@ -46,19 +46,14 @@ export default class Chart extends React.Component{
     }
 
     toggleToolTip(e) {
-        let attributes = e.target.attributes;
-        console.log(attributes);
-
         this.setState({
+            attributes: e.target.attributes,
             showToolTip: !this.state.showToolTip, // todo d-r-y
-            toolTipSVG: (!this.state.showToolTip) ? renderToolTip(attributes) : null,
         })
     }
 
 
     render() {
-
-        // this.state.data.map(x => console.log(x));
 
         return (
         <div id="chart">
@@ -67,6 +62,7 @@ export default class Chart extends React.Component{
             </header>
             <ScatterPlot {...this.state} {...styles} toolTipAction={this.toggleToolTip} />
             <Legend />
+            <Tooltip attributes={this.state.attributes} showToolTip={this.state.showToolTip} />
         </div>
         )
     }
