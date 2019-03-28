@@ -15,7 +15,7 @@ function renderCircles(props) {
         const circleProps = {
             cx: props.xScale(coords.Year),
             cy: props.yScale(coords.Time),
-            r: 5,
+            r: 6,
             key: index,
         };
 
@@ -24,7 +24,8 @@ function renderCircles(props) {
         return <circle className="dot" data-xvalue={coords.Year}
                        data-yvalue={coords.Time}  data-doping={coords.Doping}
                         data-name={coords.Name} // todo: {...coords}
-                       {...circleProps} fill={fillColor} />;
+                       {...circleProps} fill={fillColor}
+                       opacity="0.5" />;
     };
 }
 

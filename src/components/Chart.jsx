@@ -8,8 +8,8 @@ const parseTime = d3.timeParse("%M:%S");
 const parseYear = d3.timeParse("%Y");
 
 const styles = {
-    width: Math.min(window.innerWidth, 700),
-    height: Math.min(window.innerHeight - 100, 400),
+    width: Math.min(window.innerWidth, 600),
+    height: Math.min(window.innerHeight - 100, 550),
     padding: 40,
     showToolTip: false
 };
@@ -33,7 +33,6 @@ export default class Chart extends React.Component{
         fetch(url)
             .then(res => res.json())
             .then(jsonData => {
-                console.log(jsonData);
 
                 for (let i = 0; i < jsonData.length; i++) {
                     jsonData[i].Year = parseYear(jsonData[i].Year);
@@ -57,11 +56,13 @@ export default class Chart extends React.Component{
 
         return (
         <div id="chart">
-            <header className="App-header">
-                <h1 id="title">Doping in Professional Bicycle Racing</h1>
-            </header>
+            <div id="metadata">
+                <header className="App-header">
+                    <h1 id="title">Doping in Professional Bicycle Racing</h1>
+                </header>
+                <Legend />
+            </div>
             <ScatterPlot {...this.state} {...styles} toolTipAction={this.toggleToolTip} />
-            <Legend />
             <Tooltip attributes={this.state.attributes} showToolTip={this.state.showToolTip} />
         </div>
         )
