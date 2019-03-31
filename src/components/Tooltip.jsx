@@ -26,7 +26,9 @@ export default (props) => {
                  style={{left: Math.floor(cx) + 9 * padding + 'px',
                      top: Math.floor(cy) - 0.5 * padding + 'px',
                      position: 'absolute',
-                     display: display}}
+                     display: display,
+                     backgroundColor: (doping === "") ? '#9c99ff': '#ff9999',  // todo config, d-r-y
+                 }}
             >
                 {fullYear}
                 <br/>

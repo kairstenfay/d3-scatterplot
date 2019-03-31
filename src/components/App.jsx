@@ -1,7 +1,7 @@
 import React       from 'react';
 import ScatterPlot from './ScatterPlot';
 import Legend from './Legend';
-import '../Chart.css';
+import '../App.css';
 import Tooltip from '../components/Tooltip';
 import * as d3 from "d3";
 const parseTime = d3.timeParse("%M:%S");
@@ -14,7 +14,7 @@ const styles = {
     showToolTip: false
 };
 
-export default class Chart extends React.Component{
+export default class App extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
@@ -55,14 +55,14 @@ export default class Chart extends React.Component{
     render() {
 
         return (
-        <div id="chart">
-            <div id="metadata">
-                <header className="App-header">
-                    <h1 id="title">Doping in Professional Bicycle Racing</h1>
-                </header>
+        <div id="App">
+            <header className="App-header">
+                <h1 id="title">Doping in Professional Bicycle Racing</h1>
+            </header>
+            <div id="chart">
+                <ScatterPlot {...this.state} {...styles} toolTipAction={this.toggleToolTip} />
                 <Legend />
             </div>
-            <ScatterPlot {...this.state} {...styles} toolTipAction={this.toggleToolTip} />
             <Tooltip attributes={this.state.attributes} showToolTip={this.state.showToolTip} />
         </div>
         )
