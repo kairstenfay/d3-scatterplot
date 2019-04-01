@@ -65,7 +65,7 @@ export default class App extends React.Component{
                 <ScatterPlot {...this.state} {...styles} toolTipAction={this.toggleToolTip} />
                 <Legend />
             </div>
-            <Tooltip attributes={this.state.attributes} showToolTip={this.state.showToolTip} />
+            <Tooltip attributes={this.state.attributes} showToolTip={this.state.showToolTip} {...styles} />
         </div>
         )
     }

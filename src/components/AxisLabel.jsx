@@ -1,8 +1,6 @@
 import React  from 'react';
 
 export default (props) => {
-    console.log(props);
-
     return (
         <text className="axis-title" transform="rotate(-90)" dy="1em"
               style={{textAnchor: 'middle'}}
