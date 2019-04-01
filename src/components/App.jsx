@@ -60,6 +60,7 @@ export default class App extends React.Component{
         <div id="App">
             <header className="App-header">
                 <h1 id="title">Doping in Professional Bicycle Racing</h1>
+                <h2>35 Fastest times up Alpe d'Huez</h2>
             </header>
             <div id="chart">
                 <ScatterPlot {...this.state} {...styles} toolTipAction={this.toggleToolTip} />
