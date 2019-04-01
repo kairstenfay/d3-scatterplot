@@ -5,7 +5,6 @@ export default class Axis extends React.Component {
 
     componentDidUpdate() {
         this.renderAxis();
-        console.log(this.props);
     }
 
     renderAxis() {
