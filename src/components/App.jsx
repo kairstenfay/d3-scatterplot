@@ -8,17 +8,19 @@ const parseTime = d3.timeParse("%M:%S");
 const parseYear = d3.timeParse("%Y");
 
 const styles = {
-    width: Math.min(window.innerWidth, 600),
+    width: Math.min(window.innerWidth, 700),
     height: Math.min(window.innerHeight - 100, 550),
-    padding: 40,
-    showToolTip: false
+    padding: 60,
 };
 
 export default class App extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
+            styles: styles,
             data: [],
+            xAxisTitle: 'Year',
+            yAxisTitle: 'Time (minutes)',
         };
         this.toggleToolTip = this.toggleToolTip.bind(this);
     }

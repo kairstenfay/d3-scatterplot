@@ -18,8 +18,6 @@ export default (props) => {
         const cx = props.attributes.cx.nodeValue; // todo import padding
         const cy = props.attributes.cy.nodeValue; // todo import padding
 
-        const triangleWidth = 10; // todo import from styles or put in config
-
         const display = (props.showToolTip) ? 'block' : 'none';
         return (
             <div id="tooltip" data-year={year}
